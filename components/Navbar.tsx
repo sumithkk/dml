@@ -51,7 +51,9 @@ const Navbar: React.FC<NavbarProps> = () => {
             <a href="/services">Services</a>
             <a href="/projects">Projects</a>
             <a href="/blog">Blog</a>
+            {loggedIn && (
             <a href="/dashboard">Dashboard</a>
+            )}
           </div>
         </div>
         <div className="navbar-buttons">
