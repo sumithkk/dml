@@ -8,6 +8,7 @@ import Navbar from "@components/Navbar";
 import Loader from "@components/Loader";
 import { GetServerSideProps } from 'next';
 import { authMiddleware } from '../middleware/auth';
+import Head from "next/head";
 
 // pages/dashboard.ts
 const Dashboard: React.FC = () => {
@@ -48,6 +49,9 @@ const Dashboard: React.FC = () => {
 
   return (
     <div>
+      <Head>
+        <title>Dashboard</title>
+      </Head>
       <Navbar pageName="Dashboard" />
       <h2 className="table-title">User List</h2>
       <table>

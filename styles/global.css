@@ -193,6 +193,8 @@ button:disabled {
 }
 .navbar-logo img {
   max-height: 50px;
+  height: auto;
+  width: auto;
 }
 
 .navbar-links {

@@ -10,7 +10,8 @@ import { login } from "../redux/actions/authActions";
 import { IconButton } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Loader from "@components/Loader";
-import Alert from '@components/Toast'; 
+import Alert from "@components/Toast";
+import Head from "next/head";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -20,8 +21,10 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [toastOpen, setToastOpen] = useState(false); // State for Toast component
-  const [toastSeverity, setToastSeverity] = useState<'success' | 'error' | 'info' | 'warning'>('error');
-  const [toastMessage, setToastMessage] = useState('');
+  const [toastSeverity, setToastSeverity] = useState<
+    "success" | "error" | "info" | "warning"
+  >("error");
+  const [toastMessage, setToastMessage] = useState("");
 
   const handleLogin = async () => {
     try {
@@ -42,21 +45,24 @@ const LoginPage = () => {
         const data = await response.json();
         console.log(data);
         dispatch(login(data.token));
-        console.log("Redirecting to dashboard...")
+        console.log("Redirecting to dashboard...");
         router.push("/dashboard");
       } else {
         console.error("Login failed");
-        showToast('error', 'Invalid login credentials');
+        showToast("error", "Invalid login credentials");
       }
     } catch (error) {
       console.error("Error during login:", error);
-      showToast('error',String(error));
+      showToast("error", String(error));
     } finally {
       setLoading(false);
     }
   };
 
-  const showToast = (severity: 'success' | 'error' | 'info' | 'warning', message: string) => {
+  const showToast = (
+    severity: "success" | "error" | "info" | "warning",
+    message: string
+  ) => {
     setToastSeverity(severity);
     setToastMessage(message);
     setToastOpen(true);
@@ -68,6 +74,9 @@ const LoginPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Login</title>
+      </Head>
       <Navbar pageName="Home" />
       <div className="loginPage">
         <div className="loginComponent">

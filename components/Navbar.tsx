@@ -15,11 +15,6 @@ const Navbar: React.FC<NavbarProps> = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const loggedIn = useSelector((state: RootState) => state.auth.loggedIn);
 
-  useEffect(() => {
-    console.log("Navbar rendered...");
-    console.log("fomr Navbar", loggedIn)
-  }, []);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -41,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = () => {
       <div className="navbar-container">
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="navbar-logo">
-            <Image src={logo} alt="logo" width={60} height={60} />
+            <Image src={logo} alt="logo" width={60} height={60} priority={true} />
           </div>
           <div className={`navbar-links ${isMenuOpen ? "open" : ""}`}>
             <a href="/">Home</a>
