@@ -4,7 +4,8 @@ import Head from "next/head";
 const Careers = () => {
   return (
     <>
-    <Head>
+      <Head>
+        <meta name="description" content="This is careers page" />
         <title>Careers</title>
       </Head>
       <Navbar pageName="Home" />

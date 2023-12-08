@@ -5,6 +5,7 @@ const About = () => {
   return (
     <>
       <Head>
+        <meta name="description" content="This is about page" />
         <title>About</title>
       </Head>
       <Navbar pageName="Home" />

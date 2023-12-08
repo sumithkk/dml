@@ -4,8 +4,9 @@ import Head from "next/head";
 const Blog = () => {
   return (
     <>
-    <Head>
-        <title>About</title>
+      <Head>
+        <meta name="description" content="This is blog page" />
+        <title>Blog</title>
       </Head>
       <Navbar pageName="Home" />
       <div className="page-content-title">Blog page</div>

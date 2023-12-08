@@ -5,6 +5,7 @@ const History = () => {
   return (
     <>
       <Head>
+        <meta name="description" content="This is history page" />
         <title>History</title>
       </Head>
       <Navbar pageName="Home" />

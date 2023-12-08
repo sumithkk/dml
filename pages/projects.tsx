@@ -5,6 +5,7 @@ const Projects = () => {
   return (
     <>
       <Head>
+        <meta name="description" content="This is login page" />
         <title>Projects</title>
       </Head>
       <Navbar pageName="Home" />

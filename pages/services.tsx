@@ -5,6 +5,7 @@ const Services = () => {
   return (
     <>
       <Head>
+        <meta name="description" content="This is services page" />
         <title>Services</title>
       </Head>
       <Navbar pageName="Home" />

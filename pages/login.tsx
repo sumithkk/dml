@@ -75,6 +75,7 @@ const LoginPage = () => {
   return (
     <>
       <Head>
+        <meta name="description" content="This is login page" />
         <title>Login</title>
       </Head>
       <Navbar pageName="Home" />

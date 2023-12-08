@@ -6,8 +6,8 @@ import { RootState } from "../redux/store";
 import { getUsers } from "../redux/actions/userActions";
 import Navbar from "@components/Navbar";
 import Loader from "@components/Loader";
-import { GetServerSideProps } from 'next';
-import { authMiddleware } from '../middleware/auth';
+import { GetServerSideProps } from "next";
+import { authMiddleware } from "../middleware/auth";
 import Head from "next/head";
 
 // pages/dashboard.ts
@@ -24,17 +24,16 @@ const Dashboard: React.FC = () => {
   const error = useSelector((state: RootState) => state.users.error);
 
   useEffect(() => {
-    console.log('loggedIn', loggedIn);
+    console.log("loggedIn", loggedIn);
     if (loggedIn) {
       dispatch(getUsers(1));
-    } 
+    }
   }, [dispatch, loggedIn]);
 
   const handlePageChange = (page: number) => {
-    if(page !== currentPage){
+    if (page !== currentPage) {
       dispatch(getUsers(page));
     }
-    
   };
 
   const memoizedUsers = useMemo(() => users, [users]);
@@ -50,6 +49,7 @@ const Dashboard: React.FC = () => {
   return (
     <div>
       <Head>
+        <meta name="description" content="This is dashboard page" />
         <title>Dashboard</title>
       </Head>
       <Navbar pageName="Dashboard" />
@@ -75,7 +75,11 @@ const Dashboard: React.FC = () => {
         </tbody>
       </table>
       <div className="pagination">
-        <button disabled={currentPage === 1} type="button" onClick={() => handlePageChange(currentPage - 1)}>{`<`}</button>
+        <button
+          disabled={currentPage === 1}
+          type="button"
+          onClick={() => handlePageChange(currentPage - 1)}
+        >{`<`}</button>
         {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index + 1}
@@ -85,16 +89,22 @@ const Dashboard: React.FC = () => {
             {index + 1}
           </button>
         ))}
-        <button disabled={currentPage === totalPages} type="button" onClick={() => handlePageChange(currentPage + 1)}>{`>`}</button>
+        <button
+          disabled={currentPage === totalPages}
+          type="button"
+          onClick={() => handlePageChange(currentPage + 1)}
+        >{`>`}</button>
       </div>
     </div>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = authMiddleware(async () => {
-  return {
-    props: {}, // This page has access to the user's session.
-  };
-});
+export const getServerSideProps: GetServerSideProps = authMiddleware(
+  async () => {
+    return {
+      props: {}, // This page has access to the user's session.
+    };
+  }
+);
 
 export default Dashboard;
