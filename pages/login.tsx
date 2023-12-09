@@ -1,4 +1,3 @@
-// pages/login.tsx
 import { useState } from "react";
 import { useRouter } from "next/router";
 import TextField from "@mui/material/TextField";
@@ -20,7 +19,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("cityslicka");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [toastOpen, setToastOpen] = useState(false); // State for Toast component
+  const [toastOpen, setToastOpen] = useState(false);
   const [toastSeverity, setToastSeverity] = useState<
     "success" | "error" | "info" | "warning"
   >("error");
@@ -43,7 +42,6 @@ const LoginPage = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         dispatch(login(data.token));
         console.log("Redirecting to dashboard...");
         router.push("/dashboard");

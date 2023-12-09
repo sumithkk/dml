@@ -1,5 +1,3 @@
-// userActions.ts
-
 import { Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 import { RootState } from '../store';
@@ -15,7 +13,6 @@ interface User {
 
 export const getUsers = (page: number): ThunkAction<void, RootState, null, any> => async (dispatch: Dispatch) => {
   try {
-    // Dispatch fetchUsers action from userReducer with the fetched data
     const response = await fetch(`https://reqres.in/api/users?page=${page}`);
     if (!response.ok) {
       throw new Error('Failed to fetch users');

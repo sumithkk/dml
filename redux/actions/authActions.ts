@@ -1,4 +1,3 @@
-//redux/actions/authActions.ts
 import Cookies from 'js-cookie';
 
 export const login = (token: string) => {
@@ -12,7 +11,6 @@ export const login = (token: string) => {
   
   export const logout = () => {
     return (dispatch: any) => {
-      console.log("Logging out...");
       localStorage.removeItem('loggedIn');
       localStorage.removeItem('token');
       Cookies.remove('token');

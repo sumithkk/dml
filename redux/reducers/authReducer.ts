@@ -1,8 +1,5 @@
-// redux/reducers/authReducer.ts
-
 type Action = { type: string; payload?: any };
 
-// Define action type constants
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 
@@ -14,11 +11,9 @@ export const getInitialAuthState = (tokenFromCookies?: string): AuthState => {
   let loggedIn = false;
 
   if (typeof window !== 'undefined') {
-    // Check if running on the client side
     const storedToken = localStorage.getItem('token');
     loggedIn = !!storedToken;
   } else {
-    // Check if running on the server side during SSR
     loggedIn = !!tokenFromCookies;
   }
 

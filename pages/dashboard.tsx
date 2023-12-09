@@ -10,10 +10,9 @@ import { GetServerSideProps } from "next";
 import { authMiddleware } from "../middleware/auth";
 import Head from "next/head";
 
-// pages/dashboard.ts
 const Dashboard: React.FC = () => {
   const router = useRouter();
-  const dispatch = useDispatch<ThunkDispatch<RootState, null, any>>(); // Adjust the type here
+  const dispatch = useDispatch<ThunkDispatch<RootState, null, any>>();
   const loggedIn = useSelector((state: RootState) => state.auth.loggedIn);
   const users = useSelector((state: RootState) => state.users.data);
   const totalPages = useSelector((state: RootState) => state.users.totalPages);
@@ -24,11 +23,14 @@ const Dashboard: React.FC = () => {
   const error = useSelector((state: RootState) => state.users.error);
 
   useEffect(() => {
-    console.log("loggedIn", loggedIn);
     if (loggedIn) {
       dispatch(getUsers(1));
     }
   }, [dispatch, loggedIn]);
+
+  useEffect(() => {
+    console.log("Loading", loading)
+  },[])
 
   const handlePageChange = (page: number) => {
     if (page !== currentPage) {
@@ -102,7 +104,7 @@ const Dashboard: React.FC = () => {
 export const getServerSideProps: GetServerSideProps = authMiddleware(
   async () => {
     return {
-      props: {}, // This page has access to the user's session.
+      props: {},
     };
   }
 );
