@@ -12,6 +12,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     <Provider store={store}>
       <Head>
         <title>Home</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
     </Provider>

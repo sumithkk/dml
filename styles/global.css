@@ -43,6 +43,9 @@ a {
   text-align: center;
   color: #666;
 }
+.login-btn {
+  background-color: #0c9488 !important;
+}
 
 .homeContainer {
   width: 98%;
@@ -205,6 +208,7 @@ button:disabled {
 .navbar-links a {
   color: #717784;
   text-decoration: none;
+  padding:5px;
 }
 
 .navbar-buttons button {
@@ -231,9 +235,9 @@ button:disabled {
 }
 
 .navbar-mobile-toggle span {
-  background-color: #fff;
+  background-color: #666;
   height: 3px;
-  width: 25px;
+  width: 40px;
   margin: 5px 0;
 }
 
@@ -247,9 +251,10 @@ button:disabled {
     position: absolute;
     top: 70px;
     left: 0;
-    background-color: #333;
+    background-color: #fff;
     width: 100%;
     text-align: center;
+    padding: 25px 0;
   }
 
   .navbar-links.open {
@@ -263,6 +268,9 @@ button:disabled {
 
   .navbar-mobile-toggle {
     display: flex;
+  }
+  table {
+    margin-left: 3px;
   }
 }
 

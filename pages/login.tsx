@@ -112,7 +112,7 @@ const LoginPage = () => {
               ),
             }}
           />
-          <Button variant="contained" onClick={handleLogin}>
+          <Button variant="contained" className="login-btn" onClick={handleLogin}>
             Login
           </Button>
         </div>
