@@ -11,6 +11,8 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Loader from "@components/Loader";
 import Alert from "@components/Toast";
 import Head from "next/head";
+import { guestMiddleware } from '../middleware/guest';
+import { GetServerSideProps } from "next";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -124,5 +126,11 @@ const LoginPage = () => {
     </>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = guestMiddleware(async () => {
+  return {
+    props: {},
+  };
+});
 
 export default LoginPage;
